@@ -1,0 +1,68 @@
+@startuml
+
+class Prenda{
+
+    TipoPrenda tipo
+    Tela tela
+    Color colorPrimario
+    Color colorSecundario
+    Prenda prendaBorrador
+
+    agregarColorSecundario()
+    guardarPrenda()
+    guardarBorradorPrenda()
+}
+
+enum CategoriaPrenda{
+    PARTE_SUPERIOR
+    PARTE_INFERIOR
+    CALZADO
+    ACCESORIOS
+}
+enum TelaPrenda{
+    JEAN
+    CUERO
+    CUERINA
+    LYCRA
+}
+
+enum TramaPrenda {
+    LISA
+    RAYADA
+    LUNARES
+    CUADROS
+    ESTAMPADO
+}
+
+class Color {
+
+    int rojo
+    int verde
+    int azul
+
+    Color(int rojo, int verde, int azul)
+
+
+}
+class TipoPrenda {
+
+    CategoriaPrenda categoria
+
+}
+
+class Tela {
+    TramaPrenda trama
+    TelaPrenda tela
+
+
+
+}
+
+Prenda --> TipoPrenda
+TipoPrenda --> CategoriaPrenda
+Prenda --> "*" Color
+Prenda --> Tela
+Tela --> TelaPrenda
+Tela --> TramaPrenda
+
+@enduml
